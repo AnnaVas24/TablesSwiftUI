@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var products = Product.getProducts()
     @State private var sortOrder = [KeyPathComparator(\Product.name)]
     @State private var selected = Set<Product.ID>()
+    @State private var isEditing = false
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
@@ -31,7 +32,6 @@ struct ContentView: View {
                         }
                     }
                 }
-//                .width(140)
                 TableColumn("Category", value: \.category)
                 TableColumn("Code", value: \.code) { Text($0.code.formatted()) }
                 TableColumn("Available", value: \.isAvailableToInt) { product in
@@ -42,6 +42,11 @@ struct ContentView: View {
                 products.sort(using: newValue)
             }
             .navigationTitle("Products")
+            .toolbar {
+                ToolbarItem {
+                    EditButton()
+                }
+            }
         }
     }
 }
