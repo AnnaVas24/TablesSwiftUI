@@ -8,12 +8,12 @@
 import Foundation
 
 struct Product: Identifiable {
-    var id: Int
-    var name: String
-    var country: String
-    var category: String
-    var code: Int
-    var isAvailable: Bool
+    let id: Int
+    let name: String
+    let country: String
+    let category: String
+    let code: Int
+    let isAvailable: Bool
     
     var isAvailableToInt: Int {
         isAvailable ? 0 : 1
