@@ -31,11 +31,9 @@ struct ContentView: View {
                         }
                     }
                 }
-                 //   .width(140)
+//                .width(140)
                 TableColumn("Category", value: \.category)
-                TableColumn("Code", value: \.code) { product in
-                    Text(product.code.formatted())
-                }
+                TableColumn("Code", value: \.code) { Text($0.code.formatted()) }
                 TableColumn("Available", value: \.isAvailableToInt) { product in
                     Text(product.isAvailable ? "🟢" : "❌")
                 }
@@ -50,8 +48,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            ContentView()
-        }
+        ContentView()
     }
 }
